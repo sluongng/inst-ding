@@ -10,6 +10,7 @@ DINGTALK_BASE_URL = "https://oapi.dingtalk.com/robot/send?access_token="
 # Given webhook https://oapi.dingtalk.com/robot/send?access_token=7c86f414bea82d41cf52f905de947663a4adfcd4854270a57eaf834ae223d552
 # your access_token is 7c86f414bea82d41cf52f905de947663a4adfcd4854270a57eaf834ae223d552
 ACCESS_TOKEN = "123123"
+DEFAULT_ACCESS_TOKEN = "123123"
 INSTAGRAM_TAG = "selfie"
 
 
@@ -36,6 +37,10 @@ def send2Ding(postId, instagramPic, shortCode):
 
 
 def main():
+    if ACCESS_TOKEN == DEFAULT_ACCESS_TOKEN:
+        print "Please update your Dingtalk webhook access token"
+        return
+
     web_api = Client(auto_patch=True, drop_incompat_keys=False)
     while True:
         old_posts = []
