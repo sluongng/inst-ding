@@ -6,6 +6,9 @@ INSTAGRAM_BASE_URL = "https://www.instagram.com/p/"
 DINGTALK_BASE_URL = "https://oapi.dingtalk.com/robot/send?access_token="
 
 # REPLACE THIS WITH YOURS DINGDING CHATBOT
+# Example:
+# Given webhook https://oapi.dingtalk.com/robot/send?access_token=7c86f414bea82d41cf52f905de947663a4adfcd4854270a57eaf834ae223d552
+# your access_token is 7c86f414bea82d41cf52f905de947663a4adfcd4854270a57eaf834ae223d552
 ACCESS_TOKEN = "123123"
 INSTAGRAM_TAG = "selfie"
 
