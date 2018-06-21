@@ -55,9 +55,9 @@ def main():
     while True:
         # Load up post have already been posted
         old_posts = []
-        posts_file = open("./old_posts.txt", "a+")
-        for line in posts_file:
-            old_posts.append(line)
+        with open("old_posts.txt", "r") as posts_file:
+            for line in posts_file:
+                old_posts.append(line.rstrip())
 
         # Traverse to post list in response data
         feed = web_api.tag_feed(INSTAGRAM_TAG)["data"]["hashtag"]
@@ -75,12 +75,13 @@ def main():
                 print "{} already exist".format(postId)
                 continue
             else:
-                posts_file.write(postId+"\n")
+                with open("old_posts.txt", "a") as posts_file:
+                    posts_file.write(postId+"\n")
+
                 old_posts.append(postId)
                 if not isVideo:
                     send2Ding(postId, picUrl, shortCode)
 
-        posts_file.close()
         time.sleep(REFRESH_DURATION)
 
 
